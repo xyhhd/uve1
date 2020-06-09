@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style>
+        div#box1{
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+        }
+        div#box2{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="box1" v-on:mouseover="fn1()">
+            <div id="box2" v-on:mouseover="fn2($event)" >22
+            </div>
+        </div>
+        <form action="http://www.qq.com" method="post" onsubmit="return check()">
+            <button type="submit">提交</button>
+        </form>
+
+    </div>
+<script>
+    function fn1() {
+        alert("div1显示了");
+    }
+    function fn2() {
+        alert("div2显示了");
+        event.stopPropagation();
+    }
+    function check() {
+        /*return false;*/
+    }
+    new Vue({
+        el:"#app",
+        methods:{
+            fn1:function() {
+                alert("div1显示了");
+            },
+            fn2:function(event) {
+                alert("div2显示了");
+                event.stopPropagation();
+            }
+        }
+    })
+</script>
+</body>
+</html>

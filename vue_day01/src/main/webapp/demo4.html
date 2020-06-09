@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-text = "message"></div>
+        <div v-html = "message"></div>
+        <a v-bind:href="message1">挑战</a>
+        <br>
+        <ul>
+            <li v-for="(e,index) in list">{{e+"--->"+index}}</li>
+
+        </ul>
+        <ul>
+            <li v-for="(value,key) in product">{{value}},{{key}}</li>
+        </ul>
+        <ul>
+            <li v-for="p in product1">{{p.id}},{{p.name}},{{p.price}}</li>
+        </ul>
+    </div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:"<h1>段咸鱼</h1>",
+            message1:"http://www.qq.com",
+            list:[1,2,3,4,5],
+            product:{
+                id:1001,
+                name:"APPLE",
+                price:10000
+            },
+            product1:[
+                {
+                    id:1001,
+                    name:"APPLE",
+                    price:10000
+                },
+                {
+                    id:1002,
+                    name:"HUAWEI",
+                    price:9000
+                },
+                {
+                    id:1001,
+                    name:"三星",
+                    price:8000
+                }
+            ]
+        }
+    })
+</script>
+</body>
+</html>
